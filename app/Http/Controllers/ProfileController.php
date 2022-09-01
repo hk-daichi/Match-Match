@@ -9,6 +9,6 @@ class ProfileController extends Controller
 {
     public function index(Profile $profile)
     {
-        return $profile->get();
+        return view('profiles/index')->with(['profiles' => $profile->getPaginateByLimit()]);
     }
 }
