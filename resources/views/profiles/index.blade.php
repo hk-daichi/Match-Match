@@ -17,11 +17,12 @@
         <div class='profiles'>
             @foreach ($users as $user)
                 <div class='profile'>
-                    <h2 class='user_name'>{{ $user->user_name }}</h2>
-                    <p class='age'>{{ $user->age }}歳</p>
-                    <p class='facility'>{{ $user->facility }}</p>
-                    <p class='years_of_experience'>{{ $user->years_of_experience}}年</p>
-                    <p class='career'>{{ $user->career }}</p>
+                    <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
+                    <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
+                    <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
+                    <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
+                    <p class='career'>実績　　　　　　{{ $user->career }}</p>
+                    <br>
                 </div>
             @endforeach
         </div>
