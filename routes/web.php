@@ -12,9 +12,10 @@
 */
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'UserController@index');
+    Route::get('/my_profile/{user}', 'UserController@my_profile');
+    Route::get('/my_profile/{user}/profile_edit', 'UserController@profile_edit');
+    Route::put('/my_profile/{user}', 'UserController@update');
     Route::get('/profile/{user}', 'UserController@profile');
-    Route::get('/profile/{user}/profile_edit', 'UserController@profile_edit');
-    Route::put('/profile/{user}', 'UserController@update');
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

@@ -12,6 +12,9 @@ class UserController extends Controller
     {
         return view('profiles/index')->with(['users' => $user->getPaginateByLimit()]);
     }
+    public function my_profile(User $user){
+        return view('profiles/my_profile')->with(['user' => $user]);
+    }
     public function profile(User $user){
         return view('profiles/profile')->with(['user' => $user]);
     }
@@ -22,6 +25,6 @@ class UserController extends Controller
         $input_user = $request['user'];
         $user->fill($input_user)->save();
         
-        return redirect('/profile/' . Auth::user()->id);
+        return redirect('/my_profile/' . Auth::user()->id);
     }
 }

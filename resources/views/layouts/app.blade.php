@@ -61,7 +61,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">
+                                    <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
                                         My Profile
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

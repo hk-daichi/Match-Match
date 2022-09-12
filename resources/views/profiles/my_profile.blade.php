@@ -15,17 +15,17 @@
     <body>
         <h1>プロフィール</h1>
         <div class='profile'>
-            <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
-            <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
-            <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
-            <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
-            <p class='career'>実績　　　　　　{{ $user->career }}</p>
+            <p class='user_name'>ユーザー名　　　{{ Auth::user()->user_name }}</p>
+            <p class='age'>年齢　　　　　　{{ Auth::user()->age }}歳</p>
+            <p class='facility'>利用可能施設　　{{ Auth::user()->facility }}</p>
+            <p class='years_of_experience'>テニス歴　　　　{{ Auth::user()->years_of_experience}}年</p>
+            <p class='career'>実績　　　　　　{{ Auth::user()->career }}</p>
         </div>
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="button">
-                    <a href="/">
-                        Back
+                    <a href="/my_profile/{{ Auth::user()->id }}/profile_edit">
+                        Edit Profile
                     </a>
                 </button>
             </div>
