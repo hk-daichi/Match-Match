@@ -16,14 +16,18 @@
         <h1>プロフィール一覧</h1>
         <div class='profiles'>
             @foreach ($users as $user)
-                <div class='profile'>
-                    <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
-                    <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
-                    <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
-                    <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
-                    <p class='career'>実績　　　　　　{{ $user->career }}</p>
-                    <br>
-                </div>
+               @if($user != Auth::user())
+                    <div class='profile'>
+                        <a href='/profile/{{ $user->id }}'>
+                            <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
+                        </a>
+                        <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
+                        <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
+                        <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
+                        <p class='career'>実績　　　　　　{{ $user->career }}</p>
+                        <br>
+                    </div>
+                @endif
             @endforeach
         </div>
         <div class='paginate'>

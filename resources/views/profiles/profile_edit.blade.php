@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form action="/profile/{{ Auth::user()->id }}"　method="POST">
+                    <form action="/my_profile/{{ Auth::user()->id }}"　method="POST">
                         @csrf
                         @method('PUT')
                         
