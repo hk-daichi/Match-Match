@@ -64,6 +64,9 @@
                                     <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
                                         My Profile
                                     </a>
+                                    <a class="dropdown-item" href="/matching_list">
+                                        Matching List
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
