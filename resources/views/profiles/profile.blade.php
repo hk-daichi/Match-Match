@@ -23,6 +23,26 @@
         </div>
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
+                <div class='matching_request'>
+                    @if($matched)
+                        <button type=button>
+                            マッチング済み
+                        </button>
+                    @elseif($sent)
+                        <button type=button>
+                            送信済み
+                        </button>
+                    @else
+                        <form action="/profile/{user}" method="POST">
+                            @csrf
+                            <input type="hidden" name="to_user_id" value="{{ $user->id }}">
+                            <input type="hidden" name="matching_request" value="1">
+                            <button type="submit">
+                                マッチングリクエストを送る
+                            </button>
+                        </form>
+                    @endif
+                </div>
                 <button type="button">
                     <a href="/">
                         Back
