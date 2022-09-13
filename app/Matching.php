@@ -12,7 +12,7 @@ class Matching extends Model
         'to_user_id',
         'matching_request',
         ];
-    public function user(){
+    public function toUser(){
         return $this->belongsTo('App\User', 'to_user_id', 'id');
     }
 }
