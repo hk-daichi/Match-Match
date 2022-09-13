@@ -18,9 +18,13 @@ class UserController extends Controller
     }
     public function profile(User $user, Matching $matching){
         //$sent = マッチングリクエストを送ったかどうか(ture or false)
-        $sent=Matching::where('from_user_id', '=', Auth::user()->id)->where('to_user_id', '=', $user->id)->where('matching_request', true)->exists();
+        $sent=Matching::where('from_user_id', '=', Auth::user()->id)
+                        ->where('to_user_id', '=', $user->id)
+                        ->where('matching_request', true)->exists();
         //$recieved = そのユーザーからマッチングリクエストを受け取ったかどうか(true or false)
-        $recieved=Matching::where('from_user_id', '=', $user->id)->where('to_user_id', '=', Auth::user()->id)->where('matching_request', true)->exists();
+        $recieved=Matching::where('from_user_id', '=', $user->id)
+                            ->where('to_user_id', '=', Auth::user()->id)
+                            ->where('matching_request', true)->exists();
         //$matched = マッチングが成立したかどうか
         $matched = ($sent and $recieved);
         return view('profiles/profile')->with(['user' => $user])->with('sent', $sent)->with('matched', $matched);
