@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <div class='matching_request'>
-                    <form action="/matching_list" method="POST">
+                    <form action="/matching_list" method="POST",  style="display:inline">
                         @csrf
                         <input type="hidden" name="to_user_id" value="{{ $recieved_users_relation->id }}">
                         <input type="hidden" name="matching_request" value="1">
@@ -30,10 +30,11 @@
                             承認する
                         </button>
                     </form>
-                    <form action="/matching_list" method="POST">
+                    <form action="/matching_list" method="POST",  style="display:inline">
                         @csrf
-                        <input type="hidden" name="to_user_id" value="{{ $recieved_users_relation->id }}">
-                        <input type="hidden" name="matching_request" value="0">
+                        @method('DELETE')
+                        <input type="hidden" name="from_user_id" value="{{ $recieved_users_relation->id }}">
+                        <input type="hidden" name="to_user_id" value="{{ Auth::user()->id }}">
                         <button type="submit">
                             拒否する
                         </button>
@@ -50,9 +51,7 @@
                         <p class='user_name'>ユーザー名　　　{{ $matched_users_relation->toUser->user_name }}</p>
                     </a>
                     <p class='age'>年齢　　　　　　{{ $matched_users_relation->toUser->age }}歳</p>
-                    <p class='facility'>利用可能施設　　{{ $matched_users_relation->toUser->facility }}</p>
                     <p class='years_of_experience'>テニス歴　　　　{{ $matched_users_relation->toUser->years_of_experience}}年</p>
-                    <p class='career'>実績　　　　　　{{ $matched_users_relation->toUser->career }}</p>
                     <br>
                 </div>
             @endforeach

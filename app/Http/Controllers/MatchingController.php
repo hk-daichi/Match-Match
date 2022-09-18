@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class MatchingController extends Controller
 {
-    public function matching_request(Request $request){
+    public function matching_request(Request $request)
+    {
         Matching::create([
             'from_user_id'=>Auth::user()->id,
             'to_user_id'=>$request->input('to_user_id'),
@@ -18,7 +19,17 @@ class MatchingController extends Controller
         
         return redirect('/profile/' . $request->input('to_user_id'));
     }
-    public function matching_list(Matching $matching, User $user){
+    public function matching_delete(Request $request, Matching $matching)
+    {
+        $from_user_id=$request->input('from_user_id');
+        $to_user_id=$request->input('to_user_id');
+        $matching_to_remove=$matching->where('from_user_id', '=', $from_user_id)
+                                        ->where('to_user_id', '=', $to_user_id);
+        $matching_to_remove->delete();
+        return redirect('/matching_list');
+    }
+    public function matching_list(Matching $matching, User $user)
+    {
         //$recieved_ids = 自分にリクエストを送ったユーザーのid
         $recieved_ids=$matching->where('to_user_id', '=', Auth::user()->id)
                                 ->where('matching_request', true)

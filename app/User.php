@@ -38,7 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function getPaginateByLimit(int $limit_count = 5){
+    public function getPaginateByLimit(int $limit_count = 5)
+    {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
