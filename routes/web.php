@@ -18,6 +18,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/profile/{user}', 'UserController@profile');
     Route::post('/profile/{user}', 'MatchingController@matching_request');
     Route::get('/matching_list', 'MatchingController@matching_list');
+    Route::delete('/matching_list', 'MatchingController@matching_delete');
     Route::post('/matching_list', 'MatchingController@matching_request');
 });
 Auth::routes();

@@ -13,10 +13,12 @@ class UserController extends Controller
     {
         return view('profiles/index')->with(['users' => $user->getPaginateByLimit()]);
     }
-    public function my_profile(User $user){
+    public function my_profile(User $user)
+    {
         return view('profiles/my_profile')->with(['user' => $user]);
     }
-    public function profile(User $user, Matching $matching){
+    public function profile(User $user, Matching $matching)
+    {
         //$sent = マッチングリクエストを送ったかどうか(ture or false)
         $sent=Matching::where('from_user_id', '=', Auth::user()->id)
                         ->where('to_user_id', '=', $user->id)
@@ -29,10 +31,12 @@ class UserController extends Controller
         $matched = ($sent and $recieved);
         return view('profiles/profile')->with(['user' => $user])->with('sent', $sent)->with('matched', $matched);
     }
-    public function profile_edit(User $user){
+    public function profile_edit(User $user)
+    {
         return view('profiles/profile_edit')->with(['user' => $user]);
     }
-    public function update(Request $request, User $user){
+    public function update(Request $request, User $user)
+    {
         $input_user = $request['user'];
         $user->fill($input_user)->save();
         
