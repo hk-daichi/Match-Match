@@ -28,15 +28,42 @@
                         <button type=button>
                             マッチング済み
                         </button>
+                        @if($chat_room_existence)
+                            <form action="/chat/{user}" method="POST">
+                                @csrf
+                                <input type="hidden" name="the_other_id" value="{{ $user->id }}">
+                                <input type="hidden" name="function_num" value=0>
+                                <button type="submit">
+                                    チャットを始める
+                                </button>
+                            </form>
+                        @else
+                            <button type="botton">
+                                <a href="/chat/{{ $user->id }}">
+                                    チャット
+                                </a>
+                            </button>
+                        @endif
                     @elseif($sent)
                         <button type=button>
                             送信済み
                         </button>
+                        <form action="/profile/{user}" method="POST",  style="display:inline">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="from_user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="to_user_id" value="{{ $user->id }}">
+                            <input type="hidden" name="page_request" value=0>
+                            <button type="submit">
+                                リクエストを取り消す
+                            </button>
+                        </form>
                     @else
                         <form action="/profile/{user}" method="POST">
                             @csrf
                             <input type="hidden" name="to_user_id" value="{{ $user->id }}">
                             <input type="hidden" name="matching_request" value="1">
+                            <input type="hidden" name="page_request" value=0>
                             <button type="submit">
                                 マッチングリクエストを送る
                             </button>
