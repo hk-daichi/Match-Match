@@ -26,6 +26,7 @@
                         @csrf
                         <input type="hidden" name="to_user_id" value="{{ $recieved_users_relation->id }}">
                         <input type="hidden" name="matching_request" value="1">
+                        <input type="hidden" name="page_request" value=1>
                         <button type="submit">
                             承認する
                         </button>
@@ -35,6 +36,7 @@
                         @method('DELETE')
                         <input type="hidden" name="from_user_id" value="{{ $recieved_users_relation->id }}">
                         <input type="hidden" name="to_user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="page_request" value=1>
                         <button type="submit">
                             拒否する
                         </button>
@@ -52,6 +54,33 @@
                     </a>
                     <p class='age'>年齢　　　　　　{{ $matched_users_relation->toUser->age }}歳</p>
                     <p class='years_of_experience'>テニス歴　　　　{{ $matched_users_relation->toUser->years_of_experience}}年</p>
+                    @if(in_array($matched_users_relation->toUser->id, $chat_user_ids))
+                        <button type="botton">
+                            <a href="/chat/{{ $matched_users_relation->toUser->id }}">
+                                チャット
+                            </a>
+                        </button>
+                        
+                    @else
+                        <form action="/chat/{user}" method="POST">
+                            @csrf
+                            <input type="hidden" name="the_other_id" value="{{ $matched_users_relation->toUser->id }}">
+                            <input type="hidden" name="function_num" value=0>
+                            <button type="submit">
+                                チャットを始める
+                            </button>
+                        </form>
+                    @endif
+                    <form action="/matching_list" method="POST",  style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="from_user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="to_user_id" value="{{ $matched_users_relation->toUser->id }}">
+                        <input type="hidden" name="page_request" value=1>
+                        <button type="submit">
+                            削除
+                        </button>
+                    </form>
                     <br>
                 </div>
             @endforeach
