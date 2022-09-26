@@ -17,19 +17,19 @@
         <link href="{{ asset('css/balloon.css') }}" rel="stylesheet">
     </head>
     <body class="w-4/5 md:w-3/5 lg:w-2/5 m-auto">
-        <div class="row justify-content-center">
-            <h2>{{ $user->user_name }}さんとのチャット</h2>
-        </div>
         <div class="line-bc">
+            <div class="row justify-content-center">
+            <h3>{{ $user->user_name }}さんとのチャット</h3>
+        </div>
             @foreach ($chat_room_messages as $message)
                 <!--②左コメント始-->
                 @if($message->user_id!=Auth::user()->id)
                     <div class="small">
                         <p class="text-left">{{$message->created_at}}＠{{$message->user->user_name}}</p>
                     </div>
-                    <div class="balloon6">
+                    <div class="balloon">
                         <div class="faceicon">
-                            <img~>★
+                            <img src="{{ Storage::disk('s3')->url($message->user->img_url) }}" art="">
                         </div>
                         <div class="chatting">
                             <div class="says">

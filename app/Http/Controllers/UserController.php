@@ -7,8 +7,10 @@ use App\Matching;
 use App\Chat_message;
 use App\Chat_room_user;
 use App\Chat_room;
+use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -52,9 +54,34 @@ class UserController extends Controller
     
     public function update(Request $request, User $user)
     {
-        $input_user = $request['user'];
+        $input_user=$request['user'];
+        $this->validator($input_user)->validate();
+        $image=$request->file('image');
+        if(isset($image)){
+            // 現在の画像ファイルの削除
+            Storage::disk('s3')->delete(Auth::user()->img_url);
+            // バケットへアップロード
+            $path = Storage::disk('s3')->putFile('/', $image, 'public');
+            //DBの更新
+            $user->update(['img_url' => $path]);
+        }
         $user->fill($input_user)->save();
-        
         return redirect('/my_profile/' . Auth::user()->id);
+    }
+    
+    public function edit_profile_image(User $user){
+        return view('profiles/edit_profile_image')->with(['user' => $user]);
+    }
+    
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'user_name' => ['required', 'string', 'max:20'],
+            'age' => ['required'],
+            'facility' => ['required', 'string', 'max:30'],
+            'years_of_experience' => ['required'],
+            'career' => ['required', 'string', 'max:30'],
+            'purpose' => ['required', 'string', 'max:30'],
+        ]);
     }
 }
