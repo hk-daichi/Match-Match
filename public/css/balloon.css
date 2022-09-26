@@ -2,32 +2,33 @@
 .line-bc {
   padding: 20px 10px;
   max-width: 450px;
-  margin: 15px auto;
+  margin: 5px auto;
   text-align: right;
   font-size: 14px;
   background: #FFF;
-
 }
 
 /*以下、②左側のコメント*/
-.balloon6 {
+.balloon {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
 }
 
-.balloon6 .faceicon {
+.balloon .faceicon {
   float: left;
   margin-right: -50px;
   width: 40px;
+  height: 40px;
 }
 
-.balloon6 .faceicon img{
+.balloon .faceicon img{
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 }
-.balloon6 .chatting {
+.balloon .chatting {
   width: 100%;
   text-align: left;
 }
@@ -61,7 +62,7 @@
 
 /*以下、③右側のコメント*/
 .mycomment {
-  margin: -25px 0 0;
+  margin: 10px 0;
   white-space: pre-wrap;
   word-break: break-all;
 }
@@ -74,6 +75,7 @@
   border-radius: 12px;
   background: #E6FFE9;
   font-size: 15px;
+  text-align: left;
 }
 
 .mycomment p:after {

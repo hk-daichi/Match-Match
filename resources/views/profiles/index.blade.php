@@ -11,21 +11,30 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     </head>
     <body>
-        <h1>プロフィール一覧</h1>
+        <h2 class="head-index">プロフィール一覧</h2>
         <div class='profiles'>
             @foreach ($users as $user)
                @if($user != Auth::user())
-                    <div class='profile'>
-                        <a href='/profile/{{ $user->id }}'>
-                            <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
-                        </a>
-                        <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
-                        <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
-                        <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
-                        <p class='career'>実績　　　　　　{{ $user->career }}</p>
-                        <br>
+                    <div class="index-profile">
+                    　　<div class="flex-index">
+                            <div class="img-wrap-index">
+                               <img src="{{ Storage::disk('s3')->url($user->img_url) }}" art="画像が表示されません">
+                            </div>
+                            <div class="text-index">
+                                <a href='/profile/{{ $user->id }}'>
+                                    <p class='user_name'>ユーザー名　　　　　{{ $user->user_name }}</p>
+                                </a>
+                                <p class='age'>年齢　　　　　　　　{{ $user->age }}歳</p>
+                                <p class='years_of_experience'>テニス歴　　　　　　{{ $user->years_of_experience}}年</p>
+                                <p class='facility'>利用可能施設　　　　{{ $user->facility }}</p>
+                            </div>
+                        </div>
                     </div>
                 @endif
             @endforeach
