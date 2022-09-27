@@ -11,13 +11,18 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/621f61e0b8.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/balloon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -42,30 +47,37 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
                         @else
+                            <!--<li class="nav-item">
+                                <a class="nav-link" href="/my_profile/{{ Auth::user()->id }}"><i class="fa-regular fa-user fa-lg"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/matching_list"><i class="fa-regular fa-address-book fa-lg"></i></a>
+                            </li>
+                            -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->user_name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
+                                        マイプロフィール
+                                    </a>
+                                    <a class="dropdown-item" href="/matching_list">
+                                        マッチングリスト
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
-                                        My Profile
-                                    </a>
-                                    <a class="dropdown-item" href="/matching_list">
-                                        Matching List
+                                        {{ __('ログアウト') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
