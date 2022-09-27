@@ -61,7 +61,7 @@ class RegisterController extends Controller
             'age' => ['required'],
             'facility' => ['required', 'string', 'max:30'],
             'years_of_experience' => ['required'],
-            'career' => ['required', 'string', 'max:30'],
+            'career' => ['required', 'string', 'max:50'],
             'purpose' => ['required', 'string', 'max:30'],
         ]);
     }

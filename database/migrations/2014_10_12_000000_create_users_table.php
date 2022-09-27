@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('age');
             $table->string('facility', 30);
             $table->integer('years_of_experience');
-            $table->string('career', 30);
+            $table->string('career', 50);
             $table->string('purpose', 30);
             $table->string('img_url');
             $table->rememberToken();
