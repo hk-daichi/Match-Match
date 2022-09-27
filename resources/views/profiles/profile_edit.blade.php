@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<head>
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-</head>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -16,7 +11,6 @@
                     <form action="/my_profile/{{ Auth::user()->id }}"　method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        
                         <div class="form-group row">
                             <div class="img-wrap-edit">
                                 <img src="{{ Storage::disk('s3')->url(Auth::user()->img_url) }}" art="画像が表示されません">
@@ -115,7 +109,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    update
+                                    変更を保存
                                 </button>
                             </div>
                         </div>

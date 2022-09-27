@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function index(User $user, Request $request)
     {
-        return view('profiles/index')->with(['users' => $user->getPaginateByLimit()]);
+        $search=$request->input('search');
+        $users=$user->query();
+        if($search){
+            $users=$users->where('facility', 'like', '%'.$search.'%');
+        }
+        $users=$users->orderBy('updated_at', 'DESC')->paginate(5);
+        return view('profiles/index')->with(['users' => $users]);
     }
     
     public function my_profile(User $user)
