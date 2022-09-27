@@ -8,15 +8,29 @@
             <div class="img-wrap">
                 <img src="{{ Storage::disk('s3')->url(Auth::user()->img_url) }}" art="画像が表示されません">
             </div>
-            <div class="text">
-                <p class='user_name'>ユーザー名　　　{{ Auth::user()->user_name }}</p>
-                <p class='gender'>性別　　　　　　@if(Auth::user()->gender)男@else女@endif</p>
-                <p class='age'>年齢　　　　　　{{ Auth::user()->age }}歳</p>
-                <p class='facility'>利用可能施設　　{{ Auth::user()->facility }}</p>
-                <p class='years_of_experience'>テニス歴　　　　{{ Auth::user()->years_of_experience}}年</p>
-                <p class='career'>実績　　　　　　{{ Auth::user()->career }}</p>
-                <p class='purpose'>主な目的　　　　{{ Auth::user()->purpose }}</p>
-            </div>
+            <table>
+                <tr>
+                    <th>ユーザー名</th><td>{{ Auth::user()->user_name }}</td>
+                </tr>
+                <tr>
+                    <th>性別</th><td>@if(Auth::user()->gender)男@else女@endif</td>
+                </tr>
+                <tr>
+                    <th>年齢</th><td>{{ Auth::user()->age }}歳</td>
+                </tr>
+                <tr>
+                    <th>利用施設</th><td>{{ Auth::user()->facility }}</td>
+                </tr>
+                <tr>
+                    <th>テニス歴</th><td>{{ Auth::user()->years_of_experience}}年</td>
+                </tr>
+                <tr>
+                    <th>実績</th><td>{{ Auth::user()->career }}</td>
+                </tr>
+                <tr>
+                    <th>主な目的</th><td>{{ Auth::user()->purpose }}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="form-group row mb-0">

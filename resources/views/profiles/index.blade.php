@@ -14,23 +14,19 @@
     </form>
     <div class='profiles'>
         @foreach ($users as $user)
-           @if($user != Auth::user())
-                <div class="index-profile">
-                　　<div class="flex-index">
-                        <div class="img-wrap-index">
-                           <img src="{{ Storage::disk('s3')->url($user->img_url) }}" art="画像が表示されません">
-                        </div>
-                        <div class="text-index">
-                            <a href='/profile/{{ $user->id }}'>
-                                <p class='user_name'>ユーザー名　　　　　{{ $user->user_name }}</p>
-                            </a>
-                            <p class='age'>年齢　　　　　　　　{{ $user->age }}歳</p>
-                            <p class='years_of_experience'>テニス歴　　　　　　{{ $user->years_of_experience}}年</p>
-                            <p class='facility'>利用可能施設　　　　{{ $user->facility }}</p>
-                        </div>
+            <div class="index-profile">
+            　　<div class="flex-index">
+                    <div class="img-wrap-index">
+                       <img src="{{ Storage::disk('s3')->url($user->img_url) }}" art="画像が表示されません">
+                    </div>
+                    <div class="text-index">
+                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $user->id }}'>{{ $user->user_name }}</a></p>
+                        <p class='age'>年齢　　　　　　　　{{ $user->age }}歳</p>
+                        <p class='years_of_experience'>テニス歴　　　　　　{{ $user->years_of_experience}}年</p>
+                        <p class='facility'>利用可能施設　　　　{{ $user->facility }}</p>
                     </div>
                 </div>
-            @endif
+            </div>
         @endforeach
     </div>
     <div class="pagination link-center">

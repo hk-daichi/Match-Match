@@ -8,15 +8,29 @@
             <div class="img-wrap">
                 <img src="{{ Storage::disk('s3')->url($user->img_url) }}" art="画像が表示されません">
             </div>
-            <div class="text">
-                <p class='user_name'>ユーザー名　　　{{ $user->user_name }}</p>
-                <p class='gender'>性別　　　　　　@if($user->gender)男@else女@endif</p>
-                <p class='age'>年齢　　　　　　{{ $user->age }}歳</p>
-                <p class='facility'>利用可能施設　　{{ $user->facility }}</p>
-                <p class='years_of_experience'>テニス歴　　　　{{ $user->years_of_experience}}年</p>
-                <p class='career'>実績　　　　　　{{ $user->career }}</p>
-                <p class='purpose'>主な目的　　　　{{ $user->purpose }}</p>
-            </div>
+            <table>
+                <tr>
+                    <th>ユーザー名</th><td>{{ $user->user_name }}</td>
+                </tr>
+                <tr>
+                    <th>性別</th><td>@if($user->gender)男@else女@endif</td>
+                </tr>
+                <tr>
+                    <th>年齢</th><td>{{ $user->age }}歳</td>
+                </tr>
+                <tr>
+                    <th>利用施設</th><td>{{ $user->facility }}</td>
+                </tr>
+                <tr>
+                    <th>テニス歴</th><td>{{ $user->years_of_experience}}年</td>
+                </tr>
+                <tr>
+                    <th>実績</th><td>{{ $user->career }}</td>
+                </tr>
+                <tr>
+                    <th>主な目的</th><td>{{ $user->purpose }}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="form-group row mb-0">

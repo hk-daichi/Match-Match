@@ -9,8 +9,8 @@
 
                 <div class="card-body">
                     <form action="/my_profile/{{ Auth::user()->id }}"　method="POST" enctype="multipart/form-data">
-                        @csrf
                         @method('PUT')
+                        @csrf
                         <div class="form-group row">
                             <div class="img-wrap-edit">
                                 <img src="{{ Storage::disk('s3')->url(Auth::user()->img_url) }}" art="画像が表示されません">
@@ -104,8 +104,6 @@
                             </div>
                         </div>
                         
-                        <input type=hidden name="update_type" value=0>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

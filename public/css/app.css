@@ -219,8 +219,14 @@ svg {
   vertical-align: middle;
 }
 
-table {
-  border-collapse: collapse;
+table{
+  width: 100%;
+  height: 100%;
+  border-spacing: 10px;
+}
+td{
+  width:60%;
+  height:100%;
 }
 
 caption {
@@ -232,8 +238,8 @@ caption {
 }
 
 th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
+  text-align: center;
+  font-weight: normal;
 }
 
 label {

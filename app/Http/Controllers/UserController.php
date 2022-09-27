@@ -17,11 +17,12 @@ class UserController extends Controller
     public function index(User $user, Request $request)
     {
         $search=$request->input('search');
-        $users=$user->query();
+        $users=$user->where('id', '!=', Auth::user()->id)
+                    ->where('gender', '=', Auth::user()->gender);
         if($search){
             $users=$users->where('facility', 'like', '%'.$search.'%');
         }
-        $users=$users->orderBy('updated_at', 'DESC')->paginate(5);
+        $users=$users->orderBy('updated_at', 'DESC')->paginate(4);
         return view('profiles/index')->with(['users' => $users]);
     }
     
@@ -86,7 +87,7 @@ class UserController extends Controller
             'age' => ['required'],
             'facility' => ['required', 'string', 'max:30'],
             'years_of_experience' => ['required'],
-            'career' => ['required', 'string', 'max:30'],
+            'career' => ['required', 'string', 'max:50'],
             'purpose' => ['required', 'string', 'max:30'],
         ]);
     }
