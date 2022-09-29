@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'gender', 'email', 'password', 'user_name',
+        'age', 'facility', 'years_of_experience', 'career','purpose','img_url'
     ];
 
     /**
@@ -36,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function getPaginateByLimit(int $limit_count = 5)
+    {
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }
