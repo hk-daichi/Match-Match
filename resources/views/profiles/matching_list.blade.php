@@ -11,9 +11,7 @@
                        <img src="{{ Storage::disk('s3')->url($recieved_users_relation->img_url) }}" art="画像が表示されません">
                     </div>
                     <div class="text-list">
-                        <a href='/profile/{{ $recieved_users_relation->id }}'>
-                            <p class='user_name'>ユーザー名　　　　　{{ $recieved_users_relation->user_name }}</p>
-                        </a>
+                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $recieved_users_relation->id }}'>{{ $recieved_users_relation->user_name }}</a></p>
                         <p class='years_of_experience'>テニス歴　　　　　　{{ $recieved_users_relation->years_of_experience}}年</p>
                     </div>
                     <div class="list-botton1">
@@ -52,9 +50,7 @@
                        <img src="{{ Storage::disk('s3')->url($matched_users_relation->toUser->img_url) }}" art="画像が表示されません">
                     </div>
                     <div class="text-list">
-                        <a href='/profile/{{ $matched_users_relation->toUser->id }}'>
-                            <p class='user_name'>ユーザー名　　　　　{{ $matched_users_relation->toUser->user_name }}</p>
-                        </a>
+                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $matched_users_relation->toUser->id }}'>{{ $matched_users_relation->toUser->user_name }}</a></p>
                         <p class='years_of_experience'>テニス歴　　　　　　{{ $matched_users_relation->toUser->years_of_experience}}年</p>
                     </div>
                     <div class="list-botton2">
