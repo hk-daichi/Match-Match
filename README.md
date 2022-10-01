@@ -52,8 +52,8 @@ https://enigmatic-everglades-54108.herokuapp.com/
 ## 利用方法
 ①ユーザー情報を登録し、トップページよりマッチング相手を探す。(利用施設による絞り込み検索可)    
   
-![S__4415493](https://user-images.githubusercontent.com/81620329/193055029-b01060c3-be51-4854-a175-07c2009f3859.jpg)
-  
+![S__4415490](https://user-images.githubusercontent.com/81620329/193409703-bc61f236-400c-419b-83f4-44f72cb50b18.jpg)
+
   
 ②ユーザー名をクリックしてプロフィール詳細画面から、マッチングリクエストを送る。   
   
