@@ -30,6 +30,7 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 </head>
 <body>
+    <div class="footerFixed">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-back shadow-sm">
             <div class="container">
@@ -108,6 +109,7 @@
                     Copyright © 2022 Daichi Matoba All rights reserved.
                 </div>
         </footer>
+    </div>
     </div>
 </body>
 </html>
