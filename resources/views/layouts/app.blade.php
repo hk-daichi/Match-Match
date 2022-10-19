@@ -31,85 +31,73 @@
 </head>
 <body>
     <div class="footerFixed">
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-back shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <div class="title">Match×Match</div>
-                    <!--{{ config('app.name', 'Match×Match') }}-->
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
-                            </li>
-                            @if (Route::has('register'))
+        <div id="app">
+            <nav class="navbar navbar-expand-md navbar-light navbar-back shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <div class="title">Match×Match</div>
+                        <!--{{ config('app.name', 'Match×Match') }}-->
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                                 </li>
-                            @endif
-                        @else
-                            <!--<li class="nav-item">
-                                <a class="nav-link" href="/my_profile/{{ Auth::user()->id }}"><i class="fa-regular fa-user fa-lg"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/matching_list"><i class="fa-regular fa-address-book fa-lg"></i></a>
-                            </li>
-                            -->
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->user_name }} <span class="caret"></span>
-                                </a>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->user_name }} <span class="caret"></span>
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
-                                        マイプロフィール
-                                    </a>
-                                    <a class="dropdown-item" href="/matching_list">
-                                        マッチングリスト
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/my_profile/{{ Auth::user()->id }}">
+                                            マイプロフィール
+                                        </a>
+                                        <a class="dropdown-item" href="/matching_list">
+                                            マッチングリスト
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('ログアウト') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+            </nav>
+    
+            <main class="py-4">
+                @yield('content')
+            </main>
         
-        <footer class="footer">
-            <div class="footer-bottom-wrap">
-                <div class="mail-address">
-                    <i class="fa-regular fa-envelope"></i> match-match@example.com
-                </div>
-                <div class="copyright">
-                    Copyright © 2022 Daichi Matoba All rights reserved.
-                </div>
-        </footer>
-    </div>
+            <footer class="footer">
+                <div class="footer-bottom-wrap">
+                    <div class="mail-address">
+                        <i class="fa-regular fa-envelope"></i> match-match@example.com
+                    </div>
+                    <div class="copyright">
+                        Copyright © 2022 Daichi Matoba All rights reserved.
+                    </div>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
