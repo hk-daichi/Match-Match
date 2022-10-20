@@ -10,10 +10,14 @@
                     <div class="img-wrap-list">
                        <img src="{{ Storage::disk('s3')->url($recieved_users_relation->img_url) }}" art="画像が表示されません">
                     </div>
-                    <div class="text-list">
-                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $recieved_users_relation->id }}'>{{ $recieved_users_relation->user_name }}</a></p>
-                        <p class='years_of_experience'>テニス歴　　　　　　{{ $recieved_users_relation->years_of_experience}}年</p>
-                    </div>
+                    <table>
+                        <tr>
+                            <th>ユーザー名</th><td><a href='/profile/{{ $recieved_users_relation->id }}'>{{ $recieved_users_relation->user_name }}</a></td>
+                        </tr>
+                        <tr>
+                            <th>テニス歴</th><td>{{ $recieved_users_relation->years_of_experience}}年</td>
+                        </tr>
+                    </table>
                     <div class="list-botton1">
                         <div class='matching_request'>
                             <form action="/matching_list" method="POST",  style="display:inline">
@@ -49,10 +53,14 @@
                     <div class="img-wrap-list">
                        <img src="{{ Storage::disk('s3')->url($matched_users_relation->toUser->img_url) }}" art="画像が表示されません">
                     </div>
-                    <div class="text-list">
-                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $matched_users_relation->toUser->id }}'>{{ $matched_users_relation->toUser->user_name }}</a></p>
-                        <p class='years_of_experience'>テニス歴　　　　　　{{ $matched_users_relation->toUser->years_of_experience}}年</p>
-                    </div>
+                        <table>
+                            <tr>
+                                <th>ユーザー名</th><td><a href='/profile/{{ $matched_users_relation->toUser->id }}'>{{ $matched_users_relation->toUser->user_name }}</a></td>
+                            </tr>
+                            <tr>
+                                <th>テニス歴</th><td>{{ $matched_users_relation->toUser->years_of_experience}}年</td>
+                            </tr>
+                        </table>
                     <div class="list-botton2">
                         @if(in_array($matched_users_relation->toUser->id, $chat_user_ids))
                             <button type="botton">
@@ -77,7 +85,7 @@
                             <input type="hidden" name="to_user_id" value="{{ $matched_users_relation->toUser->id }}">
                             <input type="hidden" name="page_request" value=1>
                             <button type="submit">
-                                削除
+                                削除する
                             </button>
                         </form>
                     </div>
@@ -85,10 +93,12 @@
             </div>
         @endforeach
     </div>
-    <button type="button" class="list-back-botton">
-        <a href="/">
-            戻る
-        </a>
-    </button>
+    <div class="list-back-botton">
+        <button type="button">
+            <a href="/">
+                戻る
+            </a>
+        </button>
+    </div>
 </body>
 @endsection

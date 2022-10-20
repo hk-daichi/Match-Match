@@ -2,7 +2,7 @@
 
 @section('content')
 <body>
-    <h2 class="head">{{ $user->user_name }}さんのプロフィール</h2>
+    <h3 class="head">{{ $user->user_name }}さんのプロフィール</h3>
     <div class="profile">
         <div class="flex">
             <div class="img-wrap">
@@ -67,7 +67,7 @@
                         <input type="hidden" name="to_user_id" value="{{ $user->id }}">
                         <input type="hidden" name="page_request" value=0>
                         <button type="submit">
-                        リクエストを取り消す
+                            リクエストを取り消す
                         </button>
                     </form>
                 @else
@@ -82,11 +82,13 @@
                     </form>
                 @endif
             </div>
-            <button type="button" class="profile-back-botton">
-                <a href="/">
-                    戻る
-                </a>
-            </button>
+            <div class="profile-back-botton">
+                <button type="button">
+                    <a href="/">
+                        戻る
+                    </a>
+                </button>
+            </div>
         </div>
     </div>
 </body>

@@ -19,18 +19,29 @@
                     <div class="img-wrap-index">
                        <img src="{{ Storage::disk('s3')->url($user->img_url) }}" art="画像が表示されません">
                     </div>
-                    <div class="text-index">
-                        <p class='user_name'>ユーザー名　　　　　<a href='/profile/{{ $user->id }}'>{{ $user->user_name }}</a></p>
-                        <p class='age'>年齢　　　　　　　　{{ $user->age }}歳</p>
-                        <p class='years_of_experience'>テニス歴　　　　　　{{ $user->years_of_experience}}年</p>
-                        <p class='facility'>利用可能施設　　　　{{ $user->facility }}</p>
-                    </div>
+                    <table>
+                        <tr>
+                            <th>ユーザー名</th><td><a href='/profile/{{ $user->id }}'>{{ $user->user_name }}</a></td>
+                        </tr>
+                        <tr>
+                            <th>年齢</th><td>{{ $user->age }}歳</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>テニス歴</th><td>{{ $user->years_of_experience}}年</td>
+                        </tr>
+                        <tr>
+                            <th>利用施設</th><td>{{ $user->facility }}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         @endforeach
     </div>
-    <div class="pagination link-center">
-        {{ $users->links() }}
+    <div class="pagination-link-position">
+        <div class="pagination link-center">
+            {{ $users->links() }}
+        </div>
     </div>
 </body>
 @endsection

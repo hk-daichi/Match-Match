@@ -76,10 +76,6 @@
   display: flex;
   align-items: center;
 }
-.text-index{
-  margin-top: 2%;  
-  padding-left: 12%;
-}
 .img-wrap-index{
   width: auto;
   height: auto;
@@ -142,11 +138,177 @@
 .list-botton1{
   margin-right: 15%;
   margin-left: auto;
+  display: inline-block;
 }
 .list-botton2{
-  margin-right: 17%;
+  margin-right: 15%;
   margin-left: auto;
 }
 .list-back-botton{
   margin-left:40%;
+}
+
+@media screen and (max-width:480px) {
+  .profile{
+    max-width: 90%;
+    background: #FFF;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .matching_request{
+    text-align: center;
+  }
+  .profile-back-botton{
+    margin-top:1%;
+    text-align: center;
+    margin-right: 9%;
+  }
+  .flex{
+    width: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .text{
+      padding-left: 10%;
+  }
+  .img-wrap{
+    width: auto;
+    height: auto;
+  }
+  .img-wrap img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+  .head{
+    margin-left: 7%;
+    margin-bottom: 2%;
+  }
+  .index-search{
+    width: auto;
+    display: flex;
+    margin-left: 15%;
+    margin-bottom: 2%;
+    align-items: center;
+  }
+  .search_bar{
+    display: flex; /*アイコン、テキストボックスを調整する*/
+    align-items: center; /*アイコン、テキストボックスを縦方向の中心に*/
+    justify-content: center; /*アイコン、テキストボックスを横方向の中心に*/
+    height:35px;
+    width: 70%;
+    background-color: #FFF;
+    border-radius: 17.5px;
+  }
+  
+  .botton1{
+    border: none;
+    margin-right: 5px;
+    background-color: #FFF;
+  }
+  
+  .search_icon{ /*アイコンに一定のスペースを設ける*/
+    height: 15px;
+    width: 15px;
+    margin:0 10px;
+  }
+  #text2{
+    font-size: 16px;
+    width: 100%; /*flexの中で100%広げる*/
+    background-color: #FFF;
+    border: none; /*枠線非表示*/
+    outline: none; /*フォーカス時の枠線非表示*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  }
+  .index-profile {
+    padding: 1% 1% 1% 1%;
+    max-width: 90%;
+    margin: 0 10% 2% 10%;
+    background: #FFF;
+  }
+  .flex-index{
+    width: auto;
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .img-wrap-index{
+    width: auto;
+    height: auto;
+    margin:0;
+  }
+  .img-wrap-index img{
+    width: 180px;
+    height:180px;
+    border-radius:50%;
+    object-fit: cover;
+  }
+  .head-index{
+    margin-left: 10%;
+  }
+  .img-wrap-edit{
+    width: auto;
+    height: auto;
+    margin-left: 17%;
+    padding-right:10%;
+  }
+  .img-wrap-edit img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+  .edit-store-botton{
+    text-align: center;
+  }
+  .link-center{
+    justify-content: center;
+    margin-right: 20%;
+  }
+  
+  .list-profile {
+    padding: 1% 1% 1% 1%;
+    max-width: 80%;
+    margin: 0 10% 2% 10%;
+    background: #FFF;
+  }
+  .flex-list{
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+  .text-list{
+    margin-right: 10%;
+  }
+  .img-wrap-list{
+    width: auto;
+    height: auto;
+    margin:0;
+  }
+  .img-wrap-list img{
+    width: 90px;
+    height:90px;
+    border-radius:50%;
+    object-fit: cover;
+  }
+  .head-list{
+    margin-left: 8%;
+  }
+  .list-botton1{
+    margin-right: 24%;
+    margin-left: auto;
+    margin-bottom:3%;
+  }
+  .list-botton2{
+    margin-right: 24%;
+    margin-left: auto;
+    margin-bottom: 3%;
+  }
+  .list-back-botton{
+    text-align: center;
+    margin-right: 38%;
+  }
+  .pagination-link-position{
+    margin-left: 15%;
+  }
 }

@@ -39,7 +39,7 @@
             <input type=hidden name="chat_room_id" value={{ $chat_room_id }}>
             <input type=hidden name="the_other_id" value={{ $user->id }}>
             <input type=hidden name="function_num" value=1>
-            <textarea class="mt-2 md:mt-0 md:ml-2 py-1 px-2 rounded flex-auto" name="message" placeholder="Input message." maxlength="200" cols="50" rows="2"></textarea>
+            <textarea class="mt-2 md:mt-0 md:ml-2 py-1 px-2 rounded flex-auto" name="message" placeholder="Input message." maxlength="200" cols="45" rows="1"></textarea>
             <button class="mt-2 md:mt-0 md:ml-2 py-1 px-2 rounded text-center bg-gray-500 text-black" type="submit">
                 <i class="fa-regular fa-paper-plane fa-lg"></i>
             </button>

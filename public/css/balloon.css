@@ -1,8 +1,8 @@
 /*以下、①背景色など*/
 .line-bc {
   padding: 20px 10px;
-  max-width: 600px;
-  margin: 5px auto;
+  max-width: 40%;
+  margin: 0 auto;
   text-align: right;
   font-size: 14px;
   background: #FFF;
@@ -87,4 +87,18 @@
   border-left: 18px solid #E6FFE9;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
+}
+.send-message{
+  text-align: center;
+}
+
+@media screen and (max-width:480px) {
+  .line-bc {
+    padding: 20px 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 14px;
+    background: #FFF;
+  }
 }

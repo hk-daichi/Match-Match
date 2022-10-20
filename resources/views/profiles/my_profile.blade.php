@@ -35,11 +35,13 @@
     </div>
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
-            <button type="button">
-                <a href="/my_profile/{{ Auth::user()->id }}/profile_edit">
-                    プロフィール編集
-                </a>
-            </button>
+            <div class="profile-back-botton">
+                <button type="button">
+                    <a href="/my_profile/{{ Auth::user()->id }}/profile_edit">
+                        プロフィール編集
+                    </a>
+                </button>
+            </div>
         </div>
     </div>
 </body>
