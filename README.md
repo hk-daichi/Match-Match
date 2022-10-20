@@ -41,7 +41,7 @@ https://enigmatic-everglades-54108.herokuapp.com/
 
 ## 改善したい点
 - FatControllerの修正
-- PC以外の端末に対応したUI
+- UI
 
 ## 今後追加したい機能
 
