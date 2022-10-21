@@ -29,6 +29,8 @@
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
+    <link rel="icon" type="image/png" href="{{ asset('android-touch-icon.png') }}" sizes="192x192">
 </head>
 <body>
     <div class="footerFixed">
