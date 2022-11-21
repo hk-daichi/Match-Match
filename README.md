@@ -32,7 +32,6 @@ https://enigmatic-everglades-54108.herokuapp.com/
 - CSS
 - JavaScript
 - Laravel 6.20.44
-- Vue 2.7.10
 - MySQL 15.1
 - AWS
   - EC2
