@@ -34,8 +34,8 @@ https://enigmatic-everglades-54108.herokuapp.com/
 - Laravel 6.20.44
 - MySQL 15.1
 - AWS
-  - EC2
   - Cloud9
+  - S3
 - Docker/Docker-compose
 
 ## 改善したい点
