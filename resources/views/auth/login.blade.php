@@ -1,5 +1,5 @@
 <script>
-// PWA
+// PWA化のために必要
 window.addEventListener("load", () => {
  if ("serviceWorker" in navigator) {
      navigator.serviceWorker
